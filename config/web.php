@@ -38,14 +38,34 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => false,
             'rules' => [
+                '<action>' => 'site/<action>',
+                [
+                    'pattern' => '<controller>/<action>/<id:\d+>',
+                    'route' => '<controller>/<action>',
+                    'suffix' => '',
+                ],
+                [
+                    'pattern' => '<controller>/<action>',
+                    'route' => '<controller>/<action>',
+                    'suffix' => '',
+                ],
+                [
+                    'pattern' => '</module>/<controller>/<action>/<id:\d+>',
+                    'route' => '</module>/<controller>/<action>',
+                    'suffix' => '',
+                ],
+                [
+                    'pattern' => '</module>/<controller>/<action>',
+                    'route' => '</module>/<controller>/<action>',
+                    'suffix' => '',
+                ],
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
