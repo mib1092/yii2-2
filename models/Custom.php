@@ -14,31 +14,31 @@ class Custom extends Model
     public $url;
     public $age;
     public $verifyCode;
-    public $pass;
+//    public $pass;
 
     public function rules()
     {
         return [
-            [['name', 'email', 'subject', 'body', 'pass', 'verifyCode'], 'required'],
+            [['name', 'email', 'subject', 'body', 'verifyCode'], 'required'],
             ['name', 'match', 'pattern' => '/^[a-z,A-Z]\w*$/i'],
             ['email', 'email'],
-            [['name', 'email', 'pass'], 'trim'],
+            [['name', 'email'], 'trim'],
             ['subject', 'string', 'length' => [3, 100]],
             ['body', 'string'],
             ['body', 'safe'],
             ['url', 'url', 'defaultScheme' => 'http'],
             ['age', 'integer', 'min' => 5],
             ['verifyCode', 'captcha'],
-            ['pass', 'passRules'],
+            // ['pass', 'passRules'],
         ];
     }
 
-    public function passRules()
-    {
-        $user = User::findByUsername($this->username);
-
-        if (!$user || !$user->validatePassword($this->password)) {
-            $this->addError('pass', 'Error!');
-        }
-    }
+//    public function passRules()
+//    {
+//        $user = User::findByUsername($this->username);
+//
+//        if ($user || $user->validatePassword($this->password)) {
+//            $this->addError('pass', 'Error!');
+//        }
+//    }
 }

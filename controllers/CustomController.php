@@ -8,7 +8,7 @@ use app\models\Custom;
 
 class CustomController extends Controller
 {
-    public function actionCustom()
+    public function actionIndex()
     {
         $model = new Custom();
         if ($model->load(Yii::$app->request->post()) && $model->validate())

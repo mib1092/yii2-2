@@ -13,12 +13,12 @@ use yii\widgets\ActiveForm;
 <?php $form = ActiveForm::begin(); ?>
 
 <?php echo $form->field($model, 'name'); ?>
-<?php echo $form->field($model, 'email'); ?>
+<?php echo $form->field($model, 'email')->input('email'); ?>
 <?php echo $form->field($model, 'subject'); ?>
-<?php echo $form->field($model, 'body'); ?>
+<?php echo $form->field($model, 'body')->textArea(['rows' => '6']); ?>
 <?php echo $form->field($model, 'url'); ?>
 <?php echo $form->field($model, 'age'); ?>
-<?php echo $form->field($model, 'pass')->passwordInput(); ?>
+<?php // echo $form->field($model, 'pass')->passwordInput(); ?>
 <?php echo $form->field($model, 'verifyCode'); ?>
 
 <?php echo Html::submitButton('Submit', ['class' => 'btn btn-success']); ?>
